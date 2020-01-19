@@ -15,17 +15,15 @@
       <th>Title</th>
       <th>Details</th>
     </tr>
-    <!-- TODO: re-enable these filters later -->
-    <!-- <tr *ngFor="let employee of managedColleagues | filter:query | orderBy:orderProp"> -->
-    <tr *ngFor="let employee of managedColleagues">
+    <tr *ngFor="let colleague of managedColleagues">
       <td>
-        <img [src]="'/assets/photos/' + employee.picture">
+        <img [src]="'/assets/photos/' + colleague.picture">
       </td>
-      <td>{{employee.firstName}} {{employee.lastName}}</td>
-      <td>{{employee.title}}</td>
+      <td>{{colleague.firstName}} {{colleague.lastName}}</td>
+      <td>{{colleague.title}}</td>
       <td>
-        <button [routerLink]="['/employees/', employee.id]" class="btn btn-primary">
-          <span class="badge">{{employee.reports}}</span>
+        <button [routerLink]="['/employees/', colleague.id]" class="btn btn-primary">
+          <span class="badge">{{colleague.reports}}</span>
           <span class="glyphicon glyphicon-chevron-right"></span>
         </button>
       </td>
