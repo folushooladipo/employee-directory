@@ -4,6 +4,7 @@ import { debounce, identity, sortBy } from 'lodash';
 
 import { listOfEmployees } from '../employees';
 import { getStringifiedListOfEmployees } from '../util';
+import { EMPLOYEE_PICTURES_DIRECTORY } from '../common-values';
 
 /* I saw 'orderBy:orderProp' in the old Angularjs app but couldn't find
  where orderProp was defined. Since the orderyBy pipe defaults to using the
@@ -23,6 +24,7 @@ const SEARCH_DEBOUNCING_DELAY = 500;
 export class EmployeeListComponent implements OnInit {
   employees: IEmployeeProfile[] = sortedListOfEmployees;
   searchQuery = '';
+  employeePicturesPath = `${ EMPLOYEE_PICTURES_DIRECTORY }/`;
   debounceQueryChange = debounce(this.onChangeQuery, SEARCH_DEBOUNCING_DELAY);
 
   constructor(

@@ -14,7 +14,7 @@
     <div *ngFor="let employee of employees" class="card border-custom-grey">
       <div class="card-header">
         <div class="half-width profile-pic-container">
-          <img [src]="'/assets/photos/' + employee.picture" width="50px">
+          <img [src]="employeePicturesPath + employee.picture" width="50px">
         </div>
         <div class="half-width profile-details-btn">
           <button (click)="goTo('/employees/' + employee.id)" class="btn btn-primary">

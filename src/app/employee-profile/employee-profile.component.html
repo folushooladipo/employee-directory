@@ -9,7 +9,7 @@
     <div class="panel-heading">
       <div class="profile-header-container">
         <div class="employee-pic-container">
-          <img [src]="'/assets/photos/' + employee.picture" class="employee-image">
+          <img [src]="employeePicturesPath + employee.picture" class="employee-image">
         </div>
         <div class="employee-bio-container">
           <h2 class="fullName">{{employee.firstName}} {{employee.lastName}}</h2>

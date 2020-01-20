@@ -22,7 +22,7 @@
     <tr *ngFor="let colleague of managedColleagues">
       <td class="col-sm-1 profile-pic-container">
         <img
-          [src]="'/assets/photos/' + colleague.picture"
+          [src]="employeePicturesPath + colleague.picture"
           class="profile-pic"
           >
       </td>

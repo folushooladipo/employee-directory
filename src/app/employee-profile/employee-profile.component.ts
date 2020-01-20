@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { listOfEmployees } from '../employees';
 import { findEmployeeById } from '../util';
+import { EMPLOYEE_PICTURES_DIRECTORY } from '../common-values';
 
 @Component({
   selector: 'app-employee-profile',
@@ -12,11 +13,12 @@ import { findEmployeeById } from '../util';
 export class EmployeeProfileComponent implements OnInit {
   employeeId: number;
   employee: IEmployeeProfile | null;
+  employeePicturesPath = `${ EMPLOYEE_PICTURES_DIRECTORY }/`;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
