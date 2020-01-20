@@ -1,34 +1,40 @@
 <app-nav-bar></app-nav-bar>
 
-<app-page-title title="Managed employees"></app-page-title>
+<app-page-title title="Reports"></app-page-title>
 
 <div *ngIf="!employee" class="alert alert-warning">
   <h3>We do not know that employee.</h3>
 </div>
 
-<div *ngIf="employee && !hasManagedColleagues">
-  <p>{{employee.firstName}} {{employee.lastName}} does not manage any employees.</p>
+<div *ngIf="employee && !hasManagedColleagues" class="alert alert-secondary">
+  <h5>{{employee.firstName}} {{employee.lastName}} does not manage any employees.</h5>
 </div>
 
 <div *ngIf="employee && hasManagedColleagues">
-  <p>{{employee.firstName}} {{employee.lastName}}</p>
-  <table class="table table-hover">
+  <p>List of employees that report to {{employee.firstName}} {{employee.lastName}}.</p>
+  <table class="table table-hover col-md-8">
     <tr>
-      <th>Photo</th>
-      <th>Name</th>
-      <th>Title</th>
-      <th>Details</th>
+      <th class="col-sm-1">Photo</th>
+      <th class="col-sm-2">Name</th>
+      <th class="col-sm-2">Title</th>
+      <th class="col-sm-1">Reports</th>
     </tr>
     <tr *ngFor="let colleague of managedColleagues">
-      <td>
-        <img [src]="'/assets/photos/' + colleague.picture">
+      <td class="col-sm-1 profile-pic-container">
+        <img
+          [src]="'/assets/photos/' + colleague.picture"
+          class="profile-pic"
+          >
       </td>
-      <td>{{colleague.firstName}} {{colleague.lastName}}</td>
-      <td>{{colleague.title}}</td>
-      <td>
-        <button [routerLink]="['/employees/', colleague.id]" class="btn btn-primary">
-          <span class="badge">{{colleague.reports}}</span>
-          <span class="glyphicon glyphicon-chevron-right"></span>
+      <td class="col-sm-2">{{colleague.firstName}} {{colleague.lastName}}</td>
+      <td class="col-sm-2">{{colleague.title}}</td>
+      <td class="col-sm-1">
+        <button
+          type="button"
+          class="btn btn-primary"
+          [routerLink]="['/employees/' + colleague.id + '/reports']"
+        >
+          {{colleague.reports}}
         </button>
       </td>
     </tr>
