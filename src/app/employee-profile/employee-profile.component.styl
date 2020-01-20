@@ -8,9 +8,23 @@
   box-shadow 3px 5px 10px #eee, -3px 5px 10px #eee, 3px -5px 10px #eee
   min-width 70px
 
+  > img
+    width 100%
+
 .employee-bio-container
   flex-grow 1
   margin-left 2rem
 
 .profile-body-container
   margin-top 2rem
+
+@media (max-width: 500px)
+  .profile-header-container
+    flex-direction column
+
+  .employee-pic-container
+    align-self center
+    width 50%
+
+  .employee-bio-container
+    margin-top 2rem
