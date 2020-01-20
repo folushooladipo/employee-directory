@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-// TODO: use .alert-secondary, .alert-error etc for messages in the app.
-// TODO: style the profile, manage colleagues and 404 pages.
 
 @Component({
   selector: 'app-page-title',
