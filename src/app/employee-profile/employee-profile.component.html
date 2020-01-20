@@ -1,37 +1,45 @@
 <app-nav-bar></app-nav-bar>
 <app-page-title title="Employee profile"></app-page-title>
-<p *ngIf="!employee">
-  We do not know that employee.
-</p>
+<div *ngIf="!employee" class="alert alert-warning">
+  <h3>We do not know that employee.</h3>
+</div>
 
-<div *ngIf="employee">
+<div *ngIf="employee" class="employee-profile-container">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">{{employee.firstName}} {{employee.lastName}}</h3>
+      <div class="profile-header-container">
+        <div class="employee-pic-container">
+          <img [src]="'/assets/photos/' + employee.picture" class="employee-image">
+        </div>
+        <div class="employee-bio-container">
+          <h2 class="fullName">{{employee.firstName}} {{employee.lastName}}</h2>
+          <h3 class="job-title">{{employee.title}}</h3>
+          <h3 class="work-city">{{employee.city}}</h3>
+        </div>
+      </div>
     </div>
-    <div class="panel-body">
-      <img [src]="'/assets/photos/' + employee.picture" class="employee-image">
+    <div class="panel-body profile-body-container">
       <table class="table table-hover">
-        <tr>
-          <td colspan="2">
-            <h2>{{employee.title}}</h2>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <h2>{{employee.city}}</h2>
-          </td>
-        </tr>
         <tr *ngIf="employee.managerId">
           <td class="col-md-3">Manager</td>
           <td class="col-md-9">
-            <button (click)="goTo('employees/' + employee.managerId)">{{employee.managerName}}</button>
+            <button
+              class="btn btn-primary"
+              (click)="goTo('employees/' + employee.managerId)"
+            >
+              {{employee.managerName}}
+            </button>
           </td>
         </tr>
         <tr *ngIf="employee.reports">
           <td class="col-md-3">Direct Reports</td>
           <td class="col-md-9">
-            <button (click)="goTo('employees/' + employee.id + '/reports')">{{employee.reports}}</button>
+            <button
+              class="btn btn-primary"
+              (click)="goTo('employees/' + employee.id + '/reports')"
+            >
+              {{employee.reports}}
+            </button>
           </td>
         </tr>
         <tr *ngIf="employee.officePhone">

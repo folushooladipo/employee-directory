@@ -1,6 +1,10 @@
+<app-nav-bar></app-nav-bar>
+
 <app-page-title title="Managed employees"></app-page-title>
 
-<div *ngIf="!employee">We do not know that employee.</div>
+<div *ngIf="!employee" class="alert alert-warning">
+  <h3>We do not know that employee.</h3>
+</div>
 
 <div *ngIf="employee && !hasManagedColleagues">
   <p>{{employee.firstName}} {{employee.lastName}} does not manage any employees.</p>
