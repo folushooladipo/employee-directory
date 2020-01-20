@@ -23,7 +23,7 @@ const SEARCH_DEBOUNCING_DELAY = 500;
 export class EmployeeListComponent implements OnInit {
   employees: IEmployeeProfile[] = sortedListOfEmployees;
   searchQuery = '';
-  debounceOnChangeQuery = debounce(this.onChangeQuery, SEARCH_DEBOUNCING_DELAY);
+  debounceQueryChange = debounce(this.onChangeQuery, SEARCH_DEBOUNCING_DELAY);
 
   constructor(
     private router: Router

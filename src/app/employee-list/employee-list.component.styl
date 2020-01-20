@@ -1,0 +1,42 @@
+.welcome-msg-container
+  margin 2em 0
+
+.employee-cards-container
+  display flex
+  flex-wrap wrap
+  justify-content space-between
+  margin-top 2rem
+
+.card
+  display inline-block
+  width 30%
+  min-width 300px
+  margin-bottom 1.5rem
+  box-shadow 3px 5px 10px #eee
+  transition box-shadow 0.25s ease
+
+  &:hover
+    box-shadow 3px 10px 20px #eee, -2px 5px 20px #eee
+
+  &.border-custom-grey
+    border 1px solid rgba(0, 0, 0, 0.125)
+
+.profile-pic-container,
+.profile-details-btn
+  display inline-flex
+  vertical-align middle
+
+.profile-details-btn
+  justify-content flex-end
+
+@media (max-width: 500px)
+  .employee-cards-container
+    justify-content center
+
+  .card
+    width 90%
+
+@media (min-width: 501px) and (max-width: 768px)
+  .employee-cards-container
+    justify-content center
+  

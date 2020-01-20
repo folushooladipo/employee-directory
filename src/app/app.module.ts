@@ -8,6 +8,7 @@ import { EmployeeProfileComponent } from './employee-profile/employee-profile.co
 import { EmployeeManagedColleaguesListComponent } from './employee-managed-colleagues-list/employee-managed-colleagues-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavbarAndPageTitleComponent } from './navbar-and-page-title/navbar-and-page-title.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NavbarAndPageTitleComponent } from './navbar-and-page-title/navbar-and-
     EmployeeProfileComponent,
     EmployeeManagedColleaguesListComponent,
     PageNotFoundComponent,
-    NavbarAndPageTitleComponent
+    NavbarAndPageTitleComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

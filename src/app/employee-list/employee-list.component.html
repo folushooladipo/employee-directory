@@ -1,34 +1,38 @@
+<app-nav-bar></app-nav-bar>
+
 <div>
-  <div class="">
-    <div class="">
-      <h1 class="">Employee Directory</h1>
-    </div>
+  <div class="welcome-msg-container">
+    <h1>Welcome to the Employee Directory!</h1>
   </div>
   <div class="form-group">
-    <input #searchInput (keyup)="debounceOnChangeQuery(searchInput.value)" type="search" placeholder="Search for someone..." class="form-control">
+    <input #searchInput (keyup)="debounceQueryChange(searchInput.value)" type="search" placeholder="Search for someone..." class="form-control">
   </div>
-  <div>
-    <table class="table table-hover">
-      <tr>
-        <th>Photo</th>
-        <th>Name</th>
-        <th>Title</th>
-        <th>Details</th>
-      </tr>
-      <tr *ngFor="let employee of employees">
-        <td>
+  <div *ngIf="searchQuery && employees.length === 0" class="alert alert-secondary">
+    <strong>No employees match that query.</strong>
+  </div>
+  <div class="employee-cards-container">
+    <div *ngFor="let employee of employees" class="card border-custom-grey">
+      <div class="card-header">
+        <div class="half-width profile-pic-container">
           <img [src]="'/assets/photos/' + employee.picture" width="50px">
-        </td>
-        <td>{{employee.firstName}} {{employee.lastName}}</td>
-        <td>{{employee.title}}</td>
-        <td>
+        </div>
+        <div class="half-width profile-details-btn">
           <button (click)="goTo('/employees/' + employee.id)" class="btn btn-primary">
-            <span class="badge">{{employee.reports}}</span>
-            <span class="glyphicon glyphicon-chevron-right"></span>
+            Profile
           </button>
-        </td>
-      </tr>
-      <p *ngIf="searchQuery && employees.length === 0">No employees match that query.</p>
-    </table>
+        </div>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">{{employee.firstName}} {{employee.lastName}}</h4>
+        <h5>{{employee.title}}</h5>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="goTo('/employees/' + employee.id + '/reports')"
+        >
+          Reports: {{employee.reports}}
+        </button>
+      </div>
+    </div>
   </div>
 </div>
