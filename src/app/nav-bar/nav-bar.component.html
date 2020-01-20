@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" [routerLink]="'/'">Home</a>
+
+  <div
+    *ngIf="shouldShowBackBtn"
+    class="back-btn-container"
+  >
+    <button
+      (click)="goBack()"
+      class="btn btn-secondary"
+    >
+      Back
+    </button>
+  </div>
+</nav>
