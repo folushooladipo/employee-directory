@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavbarAndPageTitleComponent } from './navbar-and-page-title.component';
+import { PageTitleComponent } from './page-title.component';
 
-describe('NavbarAndPageTitleComponent', () => {
-  let component: NavbarAndPageTitleComponent;
-  let fixture: ComponentFixture<NavbarAndPageTitleComponent>;
+describe('PageTitleComponent', () => {
+  let component: PageTitleComponent;
+  let fixture: ComponentFixture<PageTitleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavbarAndPageTitleComponent ]
+      declarations: [ PageTitleComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavbarAndPageTitleComponent);
+    fixture = TestBed.createComponent(PageTitleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
