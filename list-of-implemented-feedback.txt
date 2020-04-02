@@ -1,0 +1,21 @@
+# Good
+- Creation of typings
+- CDN for images
+- Reusable code splitted in utilities
+- Good organization of components
+- Using of css flex property
+- App is responsive for smaller screens
+
+# Could be done better
+- Using of reactive programming
+- [TODO. Use this to implement a data resolver for the employee details page so that the target employee is resolved (i.e figured out) before the component/page is initialized: https://blog.thoughtram.io/angular/2016/10/10/resolving-route-data-in-angular-2.html] Routing and data resolvers _[didn't have experience with Angular 8]_
+- [UNUSABLE. Used a for so as to be able to break early] Simple `for` loops that can be replaced by filter and reduce
+- [DONE. Update might be a tad less efficient but it's more realistic for when employees are dynamically loaded from an API instead of being a pre-stated list] For user search he is converting the full employees object into a string and matching the user input against that. (Not so elegant solution)
+- [TODO: use a named outlet as a secondary outlet that adds a footer to all pages] Using of named routerOutlets (Advanced solution) _[didn't have experience with Angular 8]_
+
+# Missing features
+- Animations (very easy to do with Angular route animations) _[didn't have experience with Angular 8]_
+
+# Bonus features
+- No bonus features implemented 
+

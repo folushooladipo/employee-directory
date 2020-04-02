@@ -1,9 +1,8 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { debounce, identity, sortBy } from 'lodash';
 
 import { listOfEmployees } from '../employees';
-import { getStringifiedListOfEmployees } from '../util';
 import { EMPLOYEE_PICTURES_DIRECTORY } from '../common-values';
 
 /* I saw 'orderBy:orderProp' in the old Angularjs app but couldn't find
@@ -13,7 +12,6 @@ import { EMPLOYEE_PICTURES_DIRECTORY } from '../common-values';
  https://docs.angularjs.org/api/ng/filter/orderBy
 */
 const sortedListOfEmployees = sortBy(listOfEmployees, identity);
-const stringifiedListOfEmployees = getStringifiedListOfEmployees(sortedListOfEmployees);
 const SEARCH_DEBOUNCING_DELAY = 500;
 
 @Component({
@@ -33,13 +31,19 @@ export class EmployeeListComponent implements OnInit {
 
   ngOnInit() {}
 
-  onChangeQuery(query: string) {
-    // Uses fuzzy matching.
-    const filteredEmployees = [];
-    stringifiedListOfEmployees.forEach((employee, index) => {
-      if (employee.includes(query.toLowerCase())) {
-        filteredEmployees.push(sortedListOfEmployees[index]);
-      }
+  onChangeQuery(rawQuery: string) {
+    // Does some basic fuzzy matching.
+    const query = rawQuery.toLowerCase();
+    if (query.length < 3) {
+      this.employees = sortedListOfEmployees;
+      this.searchQuery = query;
+      return;
+    }
+
+    const filteredEmployees = sortedListOfEmployees.filter(employee => {
+      const { firstName, lastName, title } = employee;
+      const employeeSummary = `${ firstName } ${ lastName } ${ title }`.toLowerCase();
+      return employeeSummary.includes(query);
     });
 
     this.employees = filteredEmployees;

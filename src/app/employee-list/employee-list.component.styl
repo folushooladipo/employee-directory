@@ -4,19 +4,22 @@
 .employee-cards-container
   display flex
   flex-wrap wrap
-  justify-content space-between
+  justify-content flex-start
   margin-top 2rem
 
 .card
   display inline-block
   width 30%
   min-width 300px
-  margin-bottom 1.5rem
+  margin 0 5% 1.5rem 0
   box-shadow 3px 5px 10px #eee
   transition box-shadow 0.25s ease
 
   &:hover
     box-shadow 3px 10px 20px #eee, -2px 5px 20px #eee
+
+  &:nth-of-type(3n)
+    margin-right 0
 
   &.border-custom-grey
     border 1px solid rgba(0, 0, 0, 0.125)
