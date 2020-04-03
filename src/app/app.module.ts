@@ -9,6 +9,7 @@ import { EmployeeManagedColleaguesListComponent } from './employee-managed-colle
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import EmployeeProfileResolver from './resolvers/employee-profile.resolver';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    EmployeeProfileResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
