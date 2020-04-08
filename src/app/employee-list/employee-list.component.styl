@@ -38,8 +38,21 @@
 
   .card
     width 90%
+    margin 0 0 1.5rem 0
 
 @media (min-width: 501px) and (max-width: 768px)
   .employee-cards-container
     justify-content center
-  
+
+  .card
+    margin 0 0 1.5rem 0
+
+@media (min-width: 769px) and (max-width: 1200px)
+  .employee-cards-container
+    justify-content center
+
+  .card
+    margin-right 0
+
+    &:nth-of-type(odd)
+      margin-right 5%
