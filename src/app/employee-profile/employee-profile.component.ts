@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { listOfEmployees } from '../employees';
 import { EMPLOYEE_PICTURES_DIRECTORY } from '../common-values';
+import { findEmployeeById } from '../util';
 
 @Component({
   selector: 'app-employee-profile',
@@ -21,6 +23,11 @@ export class EmployeeProfileComponent implements OnInit {
   ngOnInit() {
     this.employee = this.route.snapshot.data.resolvedEmployeeProfile;
     this.employeeId = this.employee ? this.employee.id : -1;
+
+    this.route.paramMap.subscribe(params => {
+      this.employeeId = Number(params.get('employeeId'));
+      this.employee = findEmployeeById(this.employeeId, listOfEmployees);
+    });
   }
 
   goTo(someRoute: string) {
