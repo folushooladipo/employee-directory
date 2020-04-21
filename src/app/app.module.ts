@@ -11,6 +11,8 @@ import { PageTitleComponent } from './page-title/page-title.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import EmployeeProfileResolver from './resolvers/employee-profile.resolver';
 import { FooterComponent } from './footer/footer.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,14 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    })
   ],
   providers: [
     EmployeeProfileResolver
