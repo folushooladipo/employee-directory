@@ -7,6 +7,7 @@ import {  EmployeeManagedColleaguesListComponent } from './employee-managed-coll
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FooterComponent } from './footer/footer.component';
 import EmployeeProfileResolver from './resolvers/employee-profile.resolver';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 const routes: Routes = [
   { path: '', component: EmployeeListComponent },
@@ -14,6 +15,11 @@ const routes: Routes = [
     path: '',
     component: FooterComponent,
     outlet: 'footer'
+  },
+  {
+    path: '',
+    component: NavBarComponent,
+    outlet: 'nav-bar'
   },
   {
     path: 'employees/:employeeId',
