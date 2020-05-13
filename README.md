@@ -1,11 +1,18 @@
 # EmployeesDirectory
-Welcome to the Employee Directory! Here's an app that lists the employees in our awesome company.
+Welcome to the Employee Directory! Here's an app that lists the employees in our awesome company. The app was created using Angular 8.
 
 ## Required software
 - Node.js 10+: please install Node.js version 10 or later using the information [on this page](https://nodejs.org/en/).
 - npm 6+: You should have this installed once you install Node.js v10+.
 - [The Angular 8 CLI](https://angular.io/cli): you can install it using `npm install -g @angular/cli`.
 - [Git](https://git-scm.com/): a free and open source version control system. You can find download and installation instructions for it [on this page](https://git-scm.com/downloads).
+
+## Architecture
+This app was created using Angular 8. Furthermore, the following tech and patterns in the Angular ecosystem were used to implement it:
+- [the Angular Router](https://angular.io/guide/router).
+- [named router outlets](https://medium.com/angular-in-depth/angular-router-series-secondary-outlets-primer-139206595e2) (for rendering the app's navbar and footer).
+- [data resolvers](https://blog.thoughtram.io/angular/2016/10/10/resolving-route-data-in-angular-2.html) (for the employee details page).
+- [ngrx](https://ngrx.io/) for state management (just like Redux is used in React apps).
 
 ## Installation
 - Open a terminal window/command prompt.

@@ -12,7 +12,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import EmployeeProfileResolver from './resolvers/employee-profile.resolver';
 import { FooterComponent } from './footer/footer.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { reducers } from './reducers';
+import { BookmarkedEmployeesListComponent } from './bookmarked-employees-list/bookmarked-employees-list.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +24,13 @@ import { reducers, metaReducers } from './reducers';
     PageNotFoundComponent,
     PageTitleComponent,
     NavBarComponent,
-    FooterComponent
+    FooterComponent,
+    BookmarkedEmployeesListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers, {
-      metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true

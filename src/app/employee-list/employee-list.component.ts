@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 import { debounce, identity, sortBy } from 'lodash';
 
 import { listOfEmployees } from '../employees';
 import { EMPLOYEE_PICTURES_DIRECTORY } from '../common-values';
+import { bookmarkEmployee, unbookmarkEmployee } from '../actions/bookmarkedEmployeesActions';
 
 /* I saw 'orderBy:orderProp' in the old Angularjs app but couldn't find
  where orderProp was defined. Since the orderyBy pipe defaults to using the
@@ -19,17 +22,26 @@ const SEARCH_DEBOUNCING_DELAY = 500;
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.styl']
 })
-export class EmployeeListComponent implements OnInit {
+export class EmployeeListComponent implements OnDestroy {
   employees: IEmployeeProfile[] = sortedListOfEmployees;
   searchQuery = '';
   employeePicturesPath = `${ EMPLOYEE_PICTURES_DIRECTORY }/`;
   debounceQueryChange = debounce(this.onChangeQuery, SEARCH_DEBOUNCING_DELAY);
+  subscriptionForStore: Subscription;
+  bookmarkedEmployees: IBookmarkedEmployeesState = {};
 
   constructor(
-    private router: Router
-  ) {}
+    private router: Router,
+    private store: Store<IRootState>
+  ) {
+    this.subscriptionForStore = this.store.subscribe(rootState => {
+      this.bookmarkedEmployees = rootState.bookmarkedEmployees;
+    });
+  }
 
-  ngOnInit() {}
+  ngOnDestroy() {
+    this.subscriptionForStore.unsubscribe();
+  }
 
   onChangeQuery(rawQuery: string) {
     // Does some basic fuzzy matching.
@@ -48,6 +60,19 @@ export class EmployeeListComponent implements OnInit {
 
     this.employees = filteredEmployees;
     this.searchQuery = query;
+  }
+
+  onAddBookmark(employee: IEmployeeProfile) {
+    const { id, firstName, lastName } = employee;
+    const name = `${ firstName } ${ lastName }`;
+    const payload = { id, name };
+    this.store.dispatch(bookmarkEmployee({ payload }));
+  }
+
+  onRemoveBookmark(employee: IEmployeeProfile) {
+    const { id } = employee;
+    const payload = { id };
+    this.store.dispatch(unbookmarkEmployee({ payload }));
   }
 
   goTo(someRoute: string) {

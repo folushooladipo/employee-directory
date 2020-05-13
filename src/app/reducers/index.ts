@@ -1,19 +1,7 @@
-import {
-  ActionReducer,
-  ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
-  MetaReducer
-} from '@ngrx/store';
-import { environment } from '../../environments/environment';
+import { ActionReducerMap } from '@ngrx/store';
 
-export interface State {
+import { bookmarkedEmployeesReducer } from './bookmarkedEmployeesReducer';
 
-}
-
-export const reducers: ActionReducerMap<State> = {
-
+export const reducers: ActionReducerMap<IRootState> = {
+  bookmarkedEmployees: bookmarkedEmployeesReducer
 };
-
-
-export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];

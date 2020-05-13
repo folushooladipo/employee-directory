@@ -15,3 +15,23 @@ declare interface IEmployeeProfile {
     twitterId: string;
     blog: string;
 }
+
+declare interface IRootState {
+    bookmarkedEmployees: IBookmarkedEmployeesState;
+}
+
+declare type EmployeeName = string;
+
+declare interface IBookmarkedEmployeesState {
+    [employeeId: string]: EmployeeName;
+}
+
+declare type BriefEmployee = {
+    id: string;
+    name: string;
+}
+
+declare interface GenericAction {
+    type: string;
+    payload: any;
+}

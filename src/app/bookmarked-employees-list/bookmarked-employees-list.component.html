@@ -1,0 +1,17 @@
+<h2>Bookmarked Employees</h2>
+<h5
+    *ngIf="!listOfBookmarkedEmployees.length && hasReceivedOneSubscriptionUpdate"
+>
+    You don't have any bookmarked employees.
+</h5>
+<div *ngFor="let employee of listOfBookmarkedEmployees">
+    {{employee.id}} {{employee.name}} <br />
+</div>
+<!-- TODO: Add a confirmation modal to this deletion button. -->
+<button
+    *ngIf="listOfBookmarkedEmployees.length"
+    class="btn btn-danger reset-bookmarks-btn"
+    (click)="resetBookmarks()"
+>
+    Delete all bookmarks
+</button>
