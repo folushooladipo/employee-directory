@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -22,7 +22,7 @@ const SEARCH_DEBOUNCING_DELAY = 500;
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.styl']
 })
-export class EmployeeListComponent implements OnDestroy {
+export class EmployeeListComponent implements OnInit, OnDestroy {
   employees: IEmployeeProfile[] = sortedListOfEmployees;
   searchQuery = '';
   employeePicturesPath = `${ EMPLOYEE_PICTURES_DIRECTORY }/`;
@@ -33,7 +33,9 @@ export class EmployeeListComponent implements OnDestroy {
   constructor(
     private router: Router,
     private store: Store<IRootState>
-  ) {
+  ) {}
+
+  ngOnInit() {
     this.subscriptionForStore = this.store.subscribe(rootState => {
       this.bookmarkedEmployees = rootState.bookmarkedEmployees;
     });

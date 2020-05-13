@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { resetBookmarkedEmployees } from '../actions/bookmarkedEmployeesActions';
@@ -8,14 +8,16 @@ import { resetBookmarkedEmployees } from '../actions/bookmarkedEmployeesActions'
   templateUrl: './bookmarked-employees-list.component.html',
   styleUrls: ['./bookmarked-employees-list.component.styl']
 })
-export class BookmarkedEmployeesListComponent implements OnDestroy {
+export class BookmarkedEmployeesListComponent implements OnInit, OnDestroy {
   listOfBookmarkedEmployees: BriefEmployee[] = [];
   subForBookmarkedEmployees: Subscription;
   hasReceivedOneSubscriptionUpdate = false;
 
   constructor(
     private store: Store<IRootState>
-  ) {
+  ) {}
+
+  ngOnInit() {
     this.subForBookmarkedEmployees = this.store.subscribe(rootState => {
       const { bookmarkedEmployees } = rootState;
       const listOfIds = Object.keys(bookmarkedEmployees);
