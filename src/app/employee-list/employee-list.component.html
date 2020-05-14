@@ -29,22 +29,7 @@
         >
           Reports: {{employee.reports}}
         </button>
-        <!-- TODO: Replace these bookmark/unbookmark btns with clickable icon buttons, especially icons from Font Awesome. -->
-        <button
-          *ngIf="bookmarkedEmployees[employee.id]; else addBookmark"
-          (click)="onRemoveBookmark(employee)"
-          class="btn btn-secondary bookmark-btn"
-        >
-          Remove bookmark
-        </button>
-        <ng-template #addBookmark>
-          <button
-            (click)="onAddBookmark(employee)"
-            class="btn btn-secondary unbookmark-btn"
-          >
-            Bookmark
-          </button>
-        </ng-template>
+        <app-bookmark-employee-btn employeeId="{{employee.id}}"></app-bookmark-employee-btn>
       </div>
     </div>
   </div>

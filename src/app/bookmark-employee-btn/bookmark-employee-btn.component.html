@@ -1,0 +1,16 @@
+<!-- TODO: Replace these bookmark/unbookmark btns with clickable icon buttons, especially icons from Font Awesome. -->
+<button
+  *ngIf="bookmarkedEmployees[employeeId]; else addBookmarkBtn"
+  (click)="removeBookmark()"
+  class="btn btn-secondary bookmark-btn"
+>
+  Remove bookmark
+</button>
+<ng-template #addBookmarkBtn>
+  <button
+    (click)="addBookmark()"
+    class="btn btn-secondary unbookmark-btn"
+  >
+    Bookmark
+  </button>
+</ng-template>

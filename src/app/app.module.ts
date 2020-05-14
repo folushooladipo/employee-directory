@@ -14,6 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './reducers';
 import { BookmarkedEmployeesListComponent } from './bookmarked-employees-list/bookmarked-employees-list.component';
+import { BookmarkEmployeeBtnComponent } from './bookmark-employee-btn/bookmark-employee-btn.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BookmarkedEmployeesListComponent } from './bookmarked-employees-list/bo
     PageTitleComponent,
     NavBarComponent,
     FooterComponent,
-    BookmarkedEmployeesListComponent
+    BookmarkedEmployeesListComponent,
+    BookmarkEmployeeBtnComponent
   ],
   imports: [
     BrowserModule,
