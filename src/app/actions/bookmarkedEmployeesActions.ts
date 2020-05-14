@@ -2,7 +2,7 @@ import { createAction, props } from '@ngrx/store';
 
 export const bookmarkEmployee = createAction(
     '[Bookmarked Employees] Add employee',
-    props<{ payload: { id: number, name: string } }>()
+    props<{ payload: BriefEmployee }>()
 );
 
 export const unbookmarkEmployee = createAction(

@@ -1,7 +1,5 @@
 <div>
-  <div class="welcome-msg-container">
-    <h1>Welcome to the Employee Directory!</h1>
-  </div>
+  <app-page-title title="Welcome to the Employee Directory!"></app-page-title>
   <div class="form-group">
     <input #searchInput (keyup)="debounceQueryChange(searchInput.value)" type="search" placeholder="Search for someone using 3 or more letters..." class="form-control">
   </div>

@@ -20,15 +20,16 @@ declare interface IRootState {
     bookmarkedEmployees: IBookmarkedEmployeesState;
 }
 
-declare type EmployeeName = string;
-
 declare interface IBookmarkedEmployeesState {
-    [employeeId: string]: EmployeeName;
+    [employeeId: string]: BriefEmployee;
 }
 
 declare type BriefEmployee = {
-    id: string;
-    name: string;
+    id: number;
+    firstName: string;
+    lastName: string;
+    title: string;
+    picture: string;
 }
 
 declare interface GenericAction {

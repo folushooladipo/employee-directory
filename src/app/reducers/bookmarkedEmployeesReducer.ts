@@ -11,10 +11,10 @@ const initialState: IBookmarkedEmployeesState = {};
 const reduceBookmarkedEmployeesState = createReducer<IBookmarkedEmployeesState>(
     initialState,
     on(bookmarkEmployee, (state, action) => {
-        const { id, name } = action.payload;
+        const { payload } = action;
         const newState = {
             ...state,
-            [id]: name
+            [payload.id]: payload
         };
         return newState;
     }),

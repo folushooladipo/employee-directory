@@ -1,18 +1,44 @@
 <!-- TODO: Make this page responsive. -->
-<h2>Bookmarked Employees</h2>
+<app-page-title title="Bookmarked Employees"></app-page-title>
 <h5
-    *ngIf="!listOfBookmarkedEmployees.length && hasReceivedOneSubscriptionUpdate"
+  *ngIf="!listOfBookmarkedEmployees.length && hasReceivedOneSubscriptionUpdate"
 >
-    You don't have any bookmarked employees.
+  You don't have any bookmarked employees.
 </h5>
-<div *ngFor="let employee of listOfBookmarkedEmployees">
-    {{employee.id}} {{employee.name}} <br />
+<div *ngIf="listOfBookmarkedEmployees.length">
+  <table class="table table-hover col-md-8">
+    <tr>
+      <th class="col-sm-1">Photo</th>
+      <th class="col-sm-2">Name</th>
+      <th class="col-sm-2">Title</th>
+      <th class="col-sm-1">Profile Link</th>
+    </tr>
+    <tr *ngFor="let employee of listOfBookmarkedEmployees">
+      <td class="col-sm-1 profile-pic-container">
+        <img
+          [src]="employeePicturesPath + employee.picture"
+          class="profile-pic"
+        >
+      </td>
+      <td class="col-sm-2">{{employee.firstName}} {{employee.lastName}}</td>
+      <td class="col-sm-2">{{employee.title}}</td>
+      <td class="col-sm-1">
+        <button
+          type="button"
+          class="btn btn-primary"
+          [routerLink]="['/employees/' + employee.id]"
+        >
+          PROFILE
+        </button>
+      </td>
+    </tr>
+  </table>
 </div>
 <!-- TODO: Add a confirmation modal to this deletion button. -->
 <button
-    *ngIf="listOfBookmarkedEmployees.length"
-    class="btn btn-danger reset-bookmarks-btn"
-    (click)="resetBookmarks()"
+  *ngIf="listOfBookmarkedEmployees.length"
+  class="btn btn-danger reset-bookmarks-btn"
+  (click)="resetBookmarks()"
 >
-    Delete all bookmarks
+  Delete all bookmarks
 </button>

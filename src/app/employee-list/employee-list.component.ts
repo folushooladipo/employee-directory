@@ -65,9 +65,8 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
   }
 
   onAddBookmark(employee: IEmployeeProfile) {
-    const { id, firstName, lastName } = employee;
-    const name = `${ firstName } ${ lastName }`;
-    const payload = { id, name };
+    const { id, firstName, lastName, title, picture } = employee;
+    const payload: BriefEmployee = { id, firstName, lastName, title, picture };
     this.store.dispatch(bookmarkEmployee({ payload }));
   }
 
