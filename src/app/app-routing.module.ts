@@ -31,7 +31,6 @@ const routes: Routes = [
     component: EmployeeProfileComponent,
     resolve: { resolvedEmployeeProfile: EmployeeProfileResolver }
   },
-  // TODO: Use a data resolver for the reports page too.
   { path: 'employees/:employeeId/reports', component: EmployeeManagedColleaguesListComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
