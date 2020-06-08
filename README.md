@@ -18,7 +18,7 @@ This app was created using Angular 8. Furthermore, the following tech and patter
 - Open a terminal window/command prompt.
 - Clone this repository using:
 ```bash
-git clone https://github.com/Maviza101/employee-directory.git
+git clone https://github.com/folushooladipo/employee-directory.git
 ```
 - Run `cd employee-directory` to navigate into the repository's directory.
 - Run `npm install` to install the app's dependencies.
