@@ -14,6 +14,9 @@
           <h2 class="fullName">{{employee.firstName}} {{employee.lastName}}</h2>
           <h3 class="job-title">{{employee.title}}</h3>
           <h3 class="work-city">{{employee.city}}</h3>
+          <!-- TODO: Add the bookmark button to the profile page. Add it here, under employee
+            bio, or as the last row in the profile table.
+          -->
         </div>
       </div>
     </div>
@@ -31,7 +34,7 @@
           </td>
         </tr>
         <tr *ngIf="employee.reports">
-          <td class="col-md-3">Direct Reports</td>
+          <td class="col-md-3">Direct reports</td>
           <td class="col-md-9">
             <button
               class="btn btn-primary"
@@ -42,13 +45,13 @@
           </td>
         </tr>
         <tr *ngIf="employee.officePhone">
-          <td class="col-md-3">Call Office</td>
+          <td class="col-md-3">Office phone number</td>
           <td class="col-md-9">
             <a href="tel:{{employee.officePhone}}">{{employee.officePhone}}</a>
           </td>
         </tr>
         <tr *ngIf="employee.cellPhone">
-          <td class="col-md-3">Call Cell</td>
+          <td class="col-md-3">Cell phone number</td>
           <td class="col-md-9">
             <a href="tel:{{employee.cellPhone}}">{{employee.cellPhone}}</a>
           </td>
