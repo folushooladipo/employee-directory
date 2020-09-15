@@ -9,7 +9,7 @@ import { EmployeeManagedColleaguesListComponent } from './employee-managed-colle
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import EmployeeProfileResolver from './resolvers/employee-profile.resolver';
+import { EmployeeProfileResolver } from './resolvers/employee-profile.resolver';
 import { FooterComponent } from './footer/footer.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './reducers';
